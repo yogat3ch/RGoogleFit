@@ -13,21 +13,27 @@
 GetFitDataset <- function(token, datasource, startTime, endTime) {
 
   ValidateDateRange(startTime,endTime)
+  ValidateDatasource(datasource)
 
-#  fitStartTS <-
+  fitStartTS <- EpochTime(startTime)
+  fitEndTS <- EpochTime(endTime)
 
   url <-
     paste(
       "https://www.googleapis.com/fitness/v1/users/me/dataSources/",
       datasource,
-      "/",
+      "/datasets/",
       fitStartTS,
       "-",
       fitEndTS,
       sep = ""
     )
 
-  return (fromJSON(getURL(URLencode(url),
+  url <- URLencode(url)
+  
+  print(paste("Requested URL:",url))
+  
+  return (fromJSON(getURL(url,
                           httpheader = FitHTTPHeader(token))))
 
 }

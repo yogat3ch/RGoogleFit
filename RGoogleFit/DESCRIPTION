@@ -10,5 +10,6 @@ LazyData: TRUE
 Depends:
     R (>= 3.0),
     RCurl,
-    jsonlite
+    jsonlite,
+    bit64
 RoxygenNote: 5.0.1

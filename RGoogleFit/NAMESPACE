@@ -3,5 +3,7 @@
 export(GetFitDataset)
 export(GetFitDatasource)
 export(GetFitDatasources)
+export(NanosToPOSIXct)
 import(RCurl)
+import(bit64)
 import(jsonlite)
