@@ -32,7 +32,8 @@ EpochTime <- function(inDate) {
 #' @param nanos - Nanoseconds from epoch
 #' @description
 #' Converts nanoseconds from epoch (as provided by Google Fit) to POSIXct
-
+#' @examples
+#' NanosToPOSIXct(1388534400000000000)
 
 NanosToPOSIXct <- function(nanos) {
   
