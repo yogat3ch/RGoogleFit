@@ -5,3 +5,4 @@
 RGoogleFit.Rproj
 RGoogleFit.Rcheck
 *.tar.gz
+.httr-oauth
