@@ -7,9 +7,10 @@
 #' \item \code{RGoogleFit.client_secret}
 #' }
 #' @export
-GetFitOauth2Token <- function() {
-  client_id = getOption('RGoogleFit.client_id')
-  client_secret = getOption('RGoogleFit.client_secret')
+GetFitOauth2Token <- function(client_id = NULL, client_secret = NULL, scopes = NULL) {
+  if (is.null(client_id)) client_id = getOption("RGoogleFit.client_id")
+  if (is.null(client_secret) client_secret = getOption("RGoogleFit.client_secret")
+  if (is.null(scopes) client_secret = getOption("RGoogleFit.scopes")
   
   assert(!is.null(client_id),
          'Please set \'RGoogleFit.client_id\' option')
@@ -30,14 +31,15 @@ GetFitOauth2Token <- function() {
       endpoint = oauth_endpoints("google"),
       app = oauth_app(
         "google",
-        key = getOption("RGoogleFit.client_id"),
-        secret = getOption("RGoogleFit.client_secret")
+        key = client_id,
+        secret = client_secret
       ),
       scope = c(
         "https://www.googleapis.com/auth/fitness.activity.read",
-        "https://www.googleapis.com/auth/fitness.location.read"
+        "https://www.googleapis.com/auth/fitness.location.read",
+        "https://www.googleapis.com/auth/fitness.body.read"
       ) ,
-      use_oob = TRUE,
+      use_oob = F,
       cache = TRUE
     )
     if (!oauth2_token$validate()) {
