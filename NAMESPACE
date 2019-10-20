@@ -3,7 +3,6 @@
 export(GetFitDataset)
 export(GetFitDatasource)
 export(GetFitDatasources)
-export(GetFitOauth2Object)
 export(GetFitOauth2Token)
 export(NanosToPOSIXct)
 import(RCurl)

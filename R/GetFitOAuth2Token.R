@@ -11,6 +11,7 @@
 #' @param client_secret Client Secret from console.developers.google.com
 #' @param scopes Scopes required for requests. List of scopes available on the [Google Fitness REST API Documentation](https://developers.google.com/fit/rest/v1/authorization)
 #' @param use_oob if FALSE (the default), use a local webserver (http://localhost/) for the OAuth dance. Otherwise, provide a URL to the user and prompt for a validation code 
+#' @param cache A logical value or a string. TRUE (the default) means to cache using the default cache file .httr-oauth, FALSE means don't cache, and NA means to guess using some sensible heuristics. A string means use the specified path as the cache file.
 #' @export
 
 
