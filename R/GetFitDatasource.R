@@ -14,6 +14,6 @@ GetFitDatasource <- function(token,datasource) {
                                 datasource,
                                 sep="")
                                 ),
-                          httpheader = FitHTTPHeader(token))))
+                          httpheader = FitHTTPHeader(token$credentials$access_token))))
 
 }

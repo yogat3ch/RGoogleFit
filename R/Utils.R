@@ -25,6 +25,30 @@ EpochTime <- function(inDate) {
   
 }
 
+# ----------------------- Sat Oct 19 09:51:28 2019 ------------------------#
+# Is legit token
+# Credit to googlesheets
+is_legit_token <- function (x, verbose = FALSE) 
+{
+  if (!inherits(x, "Token2.0")) {
+    if (verbose) 
+      message("Not a Token2.0 object.")
+    return(FALSE)
+  }
+  if ("invalid_client" %in% unlist(x$credentials)) {
+    if (verbose) {
+      message("Authorization error. Please check client_id and client_secret.")
+    }
+    return(FALSE)
+  }
+  if ("invalid_request" %in% unlist(x$credentials)) {
+    if (verbose) 
+      message("Authorization error. No access token obtained.")
+    return(FALSE)
+  }
+  TRUE
+}
+
 #' @title NanosToPOSIXct
 #' @rdname NanosToPOSIXct
 #' @export
@@ -47,3 +71,4 @@ NanosToPOSIXct <- function(nanos) {
 assert <- function (expr, error) {
   if (! expr) stop(error, call. = FALSE)
 }
+

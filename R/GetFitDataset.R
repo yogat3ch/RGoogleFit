@@ -34,6 +34,6 @@ GetFitDataset <- function(token, datasource, startTime, endTime) {
   print(paste("Requested URL:",url))
   
   return (fromJSON(getURL(url,
-                          httpheader = FitHTTPHeader(token))))
+                          httpheader = FitHTTPHeader(token$credentials$access_token))))
 
 }
