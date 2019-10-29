@@ -61,8 +61,8 @@ is_legit_token <- function (x, verbose = FALSE)
 
 NanosToPOSIXct <- function(nanos) {
   
-  return (as.POSIXct(round(as.integer64(nanos) /
-                              as.integer64(1000000000)),
+  return(as.POSIXct(round(as.integer64(nanos) /
+                              as.integer64(1e9)),
                      origin = "1970-01-01")
   )
   
